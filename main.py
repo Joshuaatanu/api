@@ -7,6 +7,7 @@ import pandas as pd
 from flask_cors import CORS
 import random
 from model import translate_model
+from dotenv import load_dotenv
 
 # Initialize NLTK resources path
 nltk_path = './nltk'
@@ -177,8 +178,8 @@ def generate_synthetic_data():
 #         return None
 
 
-# @app.route('/generate_synthetic_data', methods=['POST'])
-# def generate_synthetic_data():
+@app.route('/generate_synthetic_data', methods=['POST'])
+def generate_synthetic_data():
     if 'file' not in request.files:
         return jsonify({"error": "No file part"}), 400
 
@@ -262,4 +263,5 @@ def submit_translation():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0')
+    port = int(os.environ.get('PORT', 10000))
+    app.run(debug=True, host='0.0.0.0', port=port)
