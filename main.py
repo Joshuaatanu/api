@@ -178,8 +178,8 @@ def generate_synthetic_data():
 #         return None
 
 
-@app.route('/generate_synthetic_data', methods=['POST'])
-def generate_synthetic_data():
+# @app.route('/generate_synthetic_data', methods=['POST'])
+# def generate_synthetic_data():
     if 'file' not in request.files:
         return jsonify({"error": "No file part"}), 400
 
