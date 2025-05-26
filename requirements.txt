@@ -4,4 +4,6 @@ numpy
 nltk
 pandas
 streamlit
-dotenv
+python-dotenv
+openpyxl
+requests
